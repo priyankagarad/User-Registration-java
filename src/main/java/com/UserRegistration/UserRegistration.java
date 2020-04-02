@@ -19,7 +19,6 @@ public class UserRegistration
     //method created for checking mail_id valid or not
     public static void checkMailPattern(String email,String Mail_Pattern)
     {
-        //check name pattern and input name matches
         if(email.matches(Mail_Pattern))
         {
             System.out.println("valid email");
@@ -30,13 +29,27 @@ public class UserRegistration
         }
     }
 
+    //method created for checking mobile number
+    public static void checkMobileNumberPattern(String number,String mobileNumberPattern)
+    {
+        if(number.matches(mobileNumberPattern))
+        {
+            System.out.println("valid mobile number");
+        }
+        else
+        {
+            System.out.println("not valid mobile number");
+        }
+    }
+
     public static void main(String args[])
     {
         System.out.println("--Welcome to user registration --");
 
         //pattern
         String Last_NAME_PATTERN="^[A-Z][a-z]{2,}$";
-        String EMail_Pattern="^[a-zA-Z]{1,}([.]?[a-zA-Z]{1,})?[@]{1}[a-zA-Z]{1,}[.]{1}[a-z]{2}([.]?[a-z]{2})?$";
+        String EMAIL_PATTERN="^[a-zA-Z]{1,}([.]?[a-zA-Z]{1,})?[@]{1}[a-zA-Z]{1,}[.]{1}[a-z]{2}([.]?[a-z]{2})?$";
+        String MOBILE_PATTERN="^[0-9]{1,3}[' '][0-9]{10}$";
 
         //create object of scanner
         Scanner sc=new Scanner(System.in);
@@ -53,6 +66,13 @@ public class UserRegistration
         String email_id=sc.nextLine();
 
         //call method
-        checkMailPattern(email_id,EMail_Pattern);
+        checkMailPattern(email_id,EMAIL_PATTERN);
+
+        //take input from user
+        System.out.println("enter mobile number");
+        String mobileNumber=sc.nextLine();
+
+        //call method
+        checkMobileNumberPattern(mobileNumber,MOBILE_PATTERN);
     }
 }
