@@ -42,6 +42,19 @@ public class UserRegistration
         }
     }
 
+    //method created for checking password
+    public static void checkPasswordPattern(String Enterpassword,String Pattern)
+    {
+        if(Enterpassword.matches(Pattern))
+        {
+            System.out.println("valid password");
+        }
+        else
+        {
+            System.out.println("not valid password");
+        }
+    }
+
     public static void main(String args[])
     {
         System.out.println("--Welcome to user registration --");
@@ -50,6 +63,7 @@ public class UserRegistration
         String Last_NAME_PATTERN="^[A-Z][a-z]{2,}$";
         String EMAIL_PATTERN="^[a-zA-Z]{1,}([.]?[a-zA-Z]{1,})?[@]{1}[a-zA-Z]{1,}[.]{1}[a-z]{2}([.]?[a-z]{2})?$";
         String MOBILE_PATTERN="^[0-9]{1,3}[' '][0-9]{10}$";
+        String PASSWORD_EIGHT_CHARACTER_="^[a-z]{8,}";
 
         //create object of scanner
         Scanner sc=new Scanner(System.in);
@@ -57,22 +71,26 @@ public class UserRegistration
         //take input from user
         System.out.println("enter string");
         String str=sc.nextLine();
-
         //call the method
         checkLastNamePattern(str,Last_NAME_PATTERN);
 
         //take input from user
         System.out.println("enter email id");
         String email_id=sc.nextLine();
-
         //call method
         checkMailPattern(email_id,EMAIL_PATTERN);
 
         //take input from user
         System.out.println("enter mobile number");
         String mobileNumber=sc.nextLine();
-
         //call method
         checkMobileNumberPattern(mobileNumber,MOBILE_PATTERN);
+
+        //take input from user
+        System.out.println("enter password");
+        String password=sc.nextLine();
+        //call method
+        checkPasswordPattern(password,PASSWORD_EIGHT_CHARACTER_);
+
     }
 }
