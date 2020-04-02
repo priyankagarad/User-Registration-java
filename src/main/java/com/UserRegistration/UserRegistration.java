@@ -66,6 +66,7 @@ public class UserRegistration
         String PASSWORD_EIGHT_CHARACTER_="^[a-z]{8,}";
         String PASSWORD_AT_LIST_ONE_UPPERCASE_LETTER="^[a-zA-Z0-9]*(.*[A-Z].*{1}+)[a-zA-Z0-9]*{7,40}$";
         String ONE_NUMERIC_NUMBER="^[a-zA-Z0-9]*(.*[A-Z].*{1}+)(.*[0-9].*{1}+)[a-zA-Z0-9]*{7,40}$";
+        String PASSWORD_HAS_EXACTLY_ONE_SYMBOL="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}";
 
         //create object of scanner
         Scanner sc=new Scanner(System.in);
@@ -95,5 +96,7 @@ public class UserRegistration
         checkPasswordPattern(password,PASSWORD_EIGHT_CHARACTER_);
         checkPasswordPattern(password,PASSWORD_AT_LIST_ONE_UPPERCASE_LETTER);
         checkPasswordPattern(password,ONE_NUMERIC_NUMBER);
+        checkPasswordPattern(password,PASSWORD_HAS_EXACTLY_ONE_SYMBOL);
+
     }
 }
