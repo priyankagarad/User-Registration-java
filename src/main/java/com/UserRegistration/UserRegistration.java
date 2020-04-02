@@ -44,7 +44,7 @@ public class UserRegistration
 
     //method created for checking password
     public static void checkPasswordPattern(String enterpassword,String pattern)
-    {
+     {
         if(enterpassword.matches(pattern))
         {
             System.out.println("valid password");
@@ -68,6 +68,13 @@ public class UserRegistration
         String ONE_NUMERIC_NUMBER="^[a-zA-Z0-9]*(.*[A-Z].*{1}+)(.*[0-9].*{1}+)[a-zA-Z0-9]*{7,40}$";
         String PASSWORD_HAS_EXACTLY_ONE_SYMBOL="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}";
 
+        //check email pattern
+        String EMAIL_PATTERN1="^[a-zA-Z0-9]{3,}+[@]{1}$";
+        String EMAIL_PATTERN2="^[a-zA-Z0-9]{3,}+[@]{1}[a-zA-Z0-9]{3,}$";
+        String EMAIL_PATTERN3="^[a-zA-Z0-9]{3,}+[@]{1}[a-zA-Z0-9]{3,}+[.][a-zA-Z]{3,}$";
+        String EMAIL_PATTERN4="^[a-zA-Z0-9]{3,}+[@][a-zA-Z0-9]{3,}+[.][a-zA-Z]{3,}$";
+        String EMAIL_PATTERN5="^[a-zA-Z]{1,}([.]?[a-zA-Z]{1,})?[@]{1}[a-zA-Z]{1,}[.]{1}[a-z]{2}([.]?[a-z]{2})?$";
+
         //create object of scanner
         Scanner sc=new Scanner(System.in);
 
@@ -80,8 +87,13 @@ public class UserRegistration
         //take input from user
         System.out.println("enter email id");
         String email_id=sc.nextLine();
-        //call method
+
+        //call method,for checking mail pattern
         checkMailPattern(email_id,EMAIL_PATTERN);
+        checkMailPattern(email_id,EMAIL_PATTERN2);
+        checkMailPattern(email_id,EMAIL_PATTERN3);
+        checkMailPattern(email_id,EMAIL_PATTERN4);
+        checkMailPattern(email_id,EMAIL_PATTERN5);
 
         //take input from user
         System.out.println("enter mobile number");
@@ -92,11 +104,11 @@ public class UserRegistration
         //take input from user
         System.out.println("enter password");
         String password=sc.nextLine();
+
         //call method for checking password pattern
         checkPasswordPattern(password,PASSWORD_EIGHT_CHARACTER_);
         checkPasswordPattern(password,PASSWORD_AT_LIST_ONE_UPPERCASE_LETTER);
         checkPasswordPattern(password,ONE_NUMERIC_NUMBER);
         checkPasswordPattern(password,PASSWORD_HAS_EXACTLY_ONE_SYMBOL);
-
     }
 }
